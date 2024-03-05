@@ -1,0 +1,118 @@
+@import "../../style.scss";
+
+.pending-Users {
+  @include themify($themes) {
+    background-color: themed("bgSoft");
+    padding: 20px 70px;
+    color: themed("textColor");
+    margin-bottom: 20px;
+
+    .header {
+      z-index: 998;
+      position: sticky;
+      top: 60px; /* Stick the header to the top of the container */
+      background-color: themed(
+        "bgSoft"
+      ); /* Ensure the background color of the header is consistent */
+      padding: 10px 0; /* Add padding to provide spacing */
+      padding-top: 20px;
+
+      h1 {
+        font-size: 45px;
+        margin-bottom: 10px;
+        color: themed("textColor");
+        font-weight: normal;
+      }
+
+      span {
+        font-weight: bold;
+        color: themed("logo");
+        padding: 20px 0px;
+      }
+    }
+
+    .container {
+      padding: 20px;
+      padding-bottom: 50px;
+      display: flex;
+      justify-content: space-between;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+
+      ul {
+        li {
+          display: flex;
+          border-radius: 20px;
+          -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+          -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+          box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+          width: 500px;
+          padding: 20px;
+          background-color: themed("bg");
+          margin-bottom: 20px;
+
+          span {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: themed("textColor");
+            font-weight: bold;
+            padding: 20px 20px;
+          }
+          a {
+            color: themed("logo");
+            font-weight: bold;
+          }
+
+          .buttons {
+            display: flex;
+            justify-content: space-between;
+
+            .delete-button {
+              -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+              -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+              box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+              border-radius: 20px;
+              height: 45px;
+              width: 120px;
+              border-width: 0;
+              background-color: themed("bgSoft");
+              color: themed("textColor");
+              cursor: pointer;
+
+              transition: transform 0.3s ease;
+
+              &:hover {
+                transform: translateY(-5px);
+                background-color: rgb(232, 53, 53);
+              }
+            }
+
+            .posts-page {
+              -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+              -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+              box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+              border-radius: 20px;
+              height: 45px;
+              width: 120px;
+              border-width: 0;
+              background-color: themed("bgSoft");
+              color: themed("textColor");
+              cursor: pointer;
+
+              transition: transform 0.3s ease;
+
+              &:hover {
+                transform: translateY(-5px);
+                background-color: themed("logo");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -22,12 +22,14 @@ const AdminDashboard = () => {
             {/* </Link> */}
           </div>
         </Link>
+        <Link to="/ManageUsers" style={{ textDecoration: 'none' }}>
         <div className="card">
           {/* <Link to="/admin/Events" > */}
           <h2>Manage Market Artworks</h2>
           <p>Add, edit, and delete products</p>
           {/* </Link> */}
         </div>
+        </Link>
 
         <div className="card">
           {/* <Link to="/admin/Users" > */}

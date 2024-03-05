@@ -39,7 +39,9 @@ const Share = (event) => {
   const handleClick = async (event) => {
     event.preventDefault();
     let imgUrl = "";
+    console.log('share file 44' + file)
     if(file) imgUrl = await upload();
+    console.log('share' + imgUrl)
     mutation.mutate({ desc, img:imgUrl });
     setDesc("");
     setFile(null);

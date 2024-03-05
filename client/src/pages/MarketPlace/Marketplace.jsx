@@ -127,7 +127,7 @@ const Marketplace = () => {
       <div className="marketplace-container">
         {items.map((item) => (
           <div key={item.id} className="marketplace-item">
-            <img src={item.picture} alt={item.title} />
+            <img src={"./upload/" + item.picture} alt={item.title} />
             <h2>{item.title}</h2>
             <p>{item.description}</p>
             <p>Rs.{item.price}</p>

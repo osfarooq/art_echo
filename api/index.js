@@ -9,6 +9,7 @@ import commentRoutes from "./routes/comments.js";
 import likeRoutes from "./routes/likes.js";
 import relationshipRoutes from "./routes/relationships.js";
 import marketRoutes from "./routes/markets.js";
+import artworkRoutes from "./routes/artworks.js"
 
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -52,6 +53,7 @@ app.use("/api/comments", commentRoutes);
 app.use("/api/likes", likeRoutes);
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/markets", marketRoutes);
+app.use("/api/artworks", artworkRoutes);
 
 app.listen(8800, () => {
   console.log("API Connected & Working!");

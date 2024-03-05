@@ -22,6 +22,7 @@ import VRGallery from "./pages/VrGallery/VrGallery";
 import AdminLogin from "./pages/AdminLogin/AdminLogin";
 import AdminHome from "./pages/AdminDashboard/AdminHome";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
+import ManageUsers from "./pages/ManageUsers/ManageUsers";
 
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -51,7 +52,7 @@ function App() {
             <div style={{ flex: 6 }}>
               <Outlet />
             </div>
-            <RightBar />
+            {/* <RightBar /> */}
           </div>
         </div>
       </QueryClientProvider>
@@ -151,6 +152,11 @@ function App() {
           path: "/AdminUsers",
           element: <AdminUsers />,
         },
+        {
+          path: "/ManageUsers",
+          element: <ManageUsers />,
+        },
+        
       ],
     },
     {

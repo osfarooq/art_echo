@@ -1,6 +1,6 @@
+import ShareArtwork from "../../components/ShareToGallery/ShareToGallery";
 import "./vrGallery.scss";
 const VRGallery = () => {
-    
   return (
     <div className="gallery">
       <div className="space1"></div>
@@ -10,6 +10,9 @@ const VRGallery = () => {
         height="720px"
         allow="camera; fullscreen; autoplay; display-capture; microphone; clipboard-write"
       ></iframe>
+      <div className="upload-button">
+        <ShareArtwork/>
+      </div>
       <div className="space2"></div>
     </div>
   );
