@@ -1,0 +1,313 @@
+@import "../../style.scss";
+
+.marketplace {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: themed("bgSoft");
+
+    .marketplace-header {
+      display: flex;
+      padding: 50px;
+      flex-direction: column;
+
+      h1 {
+        font-size: 50px;
+        align-items: center;
+        padding: 20px;
+        background-color: themed("bgSoft");
+        color: themed("logo");
+        margin-left: 50px;
+        gap: 20px;
+      }
+
+      span {
+        color: themed("textColor");
+        margin: 0px 50px;
+      }
+    }
+
+    .buttons {
+      gap: 16px;
+      margin-bottom: 16px;
+      margin-left: 10px;
+      background-color: themed("bg");
+      padding: 15px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      button {
+        -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+        -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+        box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+        border-radius: 20px;
+        height: 45px;
+        width: 100px;
+        border-width: 0;
+        background-color: themed("logo");
+        color: white;
+        cursor: pointer;
+      }
+    }
+
+    .marketplace-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0;
+      background-color: themed("bgSoft");
+    }
+
+    .marketplace-item {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      margin: 1.3rem;
+      width: 15rem;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      padding: 1rem;
+      border-radius: 20px;
+      background-color: themed("bg");
+    }
+
+    .marketplace-item img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .marketplace-item h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: themed("textColor");
+    }
+
+    .marketplace-item a {
+      font-size: 12px;
+      margin-bottom: 0.5rem;
+      color: themed("textColor");
+    }
+
+    .marketplace-item p {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: themed("textColor");
+    }
+
+    .marketplace-item button {
+      -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+      -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+      box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+      border-radius: 20px;
+      height: 45px;
+      width: 100px;
+      border-width: 0;
+      background-color: themed("bgSoft");
+      color: themed("logo");
+      cursor: pointer;
+    }
+
+    .checkout-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: themed("textColor");
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999999;
+    }
+
+    .checkout-modal-content {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 5px;
+      width: 500px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      color: themed("textColor");
+      background-color: themed("bg");
+
+      .cart-items {
+        -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+        -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+        box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .cart-items span {
+        color: themed("textColor");
+        margin-bottom: 15px;
+      }
+    }
+
+    .checkout-modal h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: themed("logo");
+      font-size: 50px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid themed("textColor");
+    }
+
+    .checkout-modal form {
+      border-top: 1px solid themed("textColor");
+      color: themed("textColor");
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      width: 100%;
+      margin-top: 25px;
+    }
+
+    .checkout-modal label {
+      margin-top: 10px;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: themed("logo");
+    }
+
+    .checkout-modal input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      border: none;
+      border-radius: 5px;
+      background-color: themed("bgSoft");
+    }
+
+    .checkout-modal button {
+      -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+      -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+      box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+      border-radius: 20px;
+      border-width: 0;
+      background-color: themed("logo");
+      color: themed("textColor");
+
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    .sell-item-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: themed("textColor");
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999999;
+
+      .sell-item-modal-content {
+        padding: 2rem;
+        border-radius: 5px;
+        width: 500px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        color: themed("textColor");
+        background-color: themed("bg");
+
+        .sell-items {
+          -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+          -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+          box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+          padding: 20px;
+          border-radius: 20px;
+        }
+
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          color: themed("logo");
+          font-size: 50px;
+          margin-bottom: 10px;
+          border-bottom: 1px solid themed("textColor");
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: left;
+          width: 100%;
+          margin-top: 25px;
+
+          label {
+            margin-top: 10px;
+            font-size: 1rem;
+          }
+
+          input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            border: none;
+            border-radius: 5px;
+            color: themed("textColor");
+            background-color: themed("bgSoft");
+          }
+
+          button {
+            -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+            -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+            box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+            border-radius: 20px;
+            border-width: 0;
+            background-color: themed("logo");
+            color: themed("textColor");
+
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            cursor: pointer;
+          }
+        }
+
+        button {
+          -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+          -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+          box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+          border-radius: 20px;
+          border-width: 0;
+          background-color: rgb(199, 64, 64);
+          color: themed("textColor");
+
+          padding: 0.5rem 1rem;
+          border: none;
+          border-radius: 5px;
+          margin-top: 1rem;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .space2 {
+      height: 300px;
+    }
+  }
+}

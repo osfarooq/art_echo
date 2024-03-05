@@ -1,0 +1,101 @@
+@import "../../style.scss";
+
+.AdminNavBar {
+
+    @include themify($themes) {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0px;
+        padding-right: 20px;
+        height: 50px;
+        border-bottom: 1px solid themed("border");
+        position: sticky;
+        top: 0;
+        background-color: rebeccapurple;
+        color: white;
+        z-index: 999;
+
+        .left {
+            flex: 0.2592;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background-color: themed("bg");
+            padding: 17px 20px;
+            
+
+            span {
+                font-weight: 100px;
+                font-size: 30px;
+                color: themed("textColor");
+            }
+
+            b{
+                font-weight: 100px;
+                font-size: 10px;
+                color: themed("bg");
+            }
+
+            a{                
+                font-weight: 100px;
+                font-size: 20px;
+                color: themed("logo");
+            }
+
+            .darkModeIcon{
+                background-color: themed("button");
+                padding: 3px 5px;
+                border-radius: 50%;
+            }
+
+            .search {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                border: 1px solid themed("border");
+                border-radius: 10px;
+                padding: 5px;
+
+                input {
+                    border: none;
+                    width: 500px;
+                    background-color: transparent;
+                    color: themed("textColor");
+
+                }
+            }
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            @include mobile {
+                display: none;
+            }
+
+            .user {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 500;
+
+                @include tablet {
+                    display: none;
+                }
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50px;
+                    object-fit: cover;
+                }
+
+                span {}
+            }
+        }
+    }
+}

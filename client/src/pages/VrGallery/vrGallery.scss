@@ -1,0 +1,19 @@
+@import "../../style.scss";
+
+.gallery {
+  @include themify($themes) {
+    background-color: themed("bgSoft");
+    .space1 {
+      height: 20px;
+    }
+    iframe {
+      padding: 20px;
+      overflow: hidden;
+      border: none;
+    }
+  }
+
+  .space2 {
+    height: 300px;
+  }
+}
