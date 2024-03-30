@@ -10,6 +10,27 @@ export const getRelationships = (req, res) => {
   });
 };
 
+
+export const getFriends = (req, res) => {
+  const token = req.cookies.accessToken;
+  if (!token) return res.status(401).json("Not logged in");
+
+  jwt.verify(token, "secretKey", (err, userInfo) => {
+    if (err) return res.status(403).json("Token not valid.");
+
+    const q = "SELECT followedUserId FROM artecho.relationships WHERE followerUserId = ?";
+
+    db.query(q, [userInfo.id], (err, data) => {
+      if (err) return res.status(500).json(err);
+
+     const friendIds = data.map((relationship) => relationship.followedUserId);
+      console.log(friendIds);
+      return res.status(200).json(friendIds);
+    });
+  });
+};
+
+
 export const addRelationship = (req, res) => {
   const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("Not logged in");

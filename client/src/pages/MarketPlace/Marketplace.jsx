@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { Link, useNavigate } from "react-router-dom";
+
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 
@@ -109,6 +111,11 @@ const Marketplace = () => {
 
   return (
     <div className="marketplace">
+      {/* <Link to="/" style={{ textDecoration: "none" }}>
+        <div className="backButton">
+          <span> Back to Home </span>
+        </div>
+      </Link> */}
       <header className="marketplace-header">
         <h1>Marketplace</h1>
         <span>
@@ -121,27 +128,37 @@ const Marketplace = () => {
       {/* Sell Item Button */}
       <div className="buttons">
         <button onClick={() => setIsCartOpen(true)}>Cart</button>
-        <button onClick={() => setIsSellModalOpen(true)}>Sell Item</button>
+        <Link to="/SellItem">
+          <button>Sell Item</button>
+        </Link>
       </div>
       {/* Marketplace Items */}
       <div className="marketplace-container">
         {items.map((item) => (
-          <div key={item.id} className="marketplace-item">
-            <img src={"./upload/" + item.picture} alt={item.title} />
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
-            <p>Rs.{item.price}</p>
-            <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
-          </div>
+          <Link
+            to={`/Product/${item.id}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div key={item.id} className="marketplace-item">
+              <img
+                src={`${process.env.PUBLIC_URL}/upload/${item.picture}`}
+                alt={item.title}
+              />
+              <h2>{item.title}</h2>
+              <p>{item.description}</p>
+              <p>Rs.{item.price}</p>
+              <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
+            </div>
+          </Link>
         ))}
       </div>
 
-      {/* Sell Item Modal */}
+      {/* Sell Item Modal
       {isSellModalOpen && (
         <div className="sell-item-modal">
           <div className="sell-item-modal-content">
             <h2>Sell Item</h2>
-            <form onSubmit={handleSellSubmit}>
+            <form onSubmit={handleSellSubmit}> 
               <label htmlFor="title">Title</label>
               <input
                 type="text"
@@ -188,7 +205,8 @@ const Marketplace = () => {
             </form>
           </div>
         </div>
-      )}
+      )} */}
+
       {/* Cart Modal */}
       {isCartOpen && (
         <div className="checkout-modal">

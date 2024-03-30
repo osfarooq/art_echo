@@ -1,0 +1,140 @@
+@import "../../style.scss";
+
+.verification {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: column;
+
+    .header {
+      padding: 50px 100px;
+      background-color: white;
+
+      h1 {
+        font-size: 50px;
+        color: themed("logo");
+      }
+
+      span {
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+      }
+    }
+
+    .subHeader {
+      padding: 20px 50px;
+      opacity: 0.35;
+      background-color: white;
+      background-size: cover;
+
+      h1 {
+        color: black;
+      }
+    }
+
+    .main-body {
+      display: flex;
+      flex-direction: row;
+      background: transparent;
+      padding: 20px;
+      margin: 0 auto;
+      justify-content: space-between;
+      gap: 20px;
+
+      .Left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+
+        .uploaded {
+          margin-top: 100px;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .uploadedFile {
+            height: auto;
+            width: 300px;
+            padding: 10px;
+            background-color: rgb(130, 37, 206);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+
+            &:hover {
+              transform: translateY(-5px);
+              cursor: pointer;
+              background-color: rgb(170, 82, 243);
+            }
+          }
+
+          span {
+            margin-top: 10px;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+          }
+        }
+
+        .notUploaded {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .file {
+            margin-top: 200px;
+            height: 100px;
+            width: 100px;
+            padding: 30px;
+            background-color: rgb(130, 37, 206);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+
+            &:hover {
+              transform: translateY(-5px);
+              cursor: pointer;
+              background-color: rgb(170, 82, 243);
+            }
+          }
+
+          span {
+            margin-top: 10px;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+          }
+        }
+      }
+      .Right {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        margin-top: 100px;
+        margin-left: 50px;
+
+        h1 {
+          align-items: end;
+          color: white;
+        }
+        h2 {
+          align-items: end;
+          color: rgb(130, 37, 206);
+        }
+
+        ul {
+          li {
+            color: white;
+            font-weight: bold;
+          }
+        }
+
+        span {
+          color: rgb(232, 203, 255);
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

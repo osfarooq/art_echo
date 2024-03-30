@@ -9,7 +9,7 @@
         background-color: themed("bg");
         color: themed("textColor");
         margin-bottom: 20px;
-        width: 200px;
+        width: 500px;
 
         .container {
             padding: 20px;
@@ -24,12 +24,7 @@
                     align-items: center;
                     flex: 3;
 
-                    img {
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                        object-fit: cover;
-                    }
+
 
                     input {
                         border: none;
@@ -71,6 +66,7 @@
                 .left {
                     display: flex;
                     align-items: center;
+                    padding: 20px;
                     gap: 20px;
 
                     .item {
@@ -80,24 +76,29 @@
                         cursor: pointer;
 
                         img {
-                            height: 20px;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            object-fit: cover;
                         }
 
                         span {
-                            font-size: 12px;
+                            font-size: 20px;
                             color: gray;
                         }
                     }
                 }
 
                 .right {
+                    
                     button {
                         border: none;
-                        padding: 5px;
+                        padding: 20px;
                         color: white;
                         cursor: pointer;
+                        font-size: 15px;
                         background-color: themed("logo");
-                        border-radius: 3px;
+                        border-radius: 10px;
                     }
                 }
             }

@@ -36,6 +36,7 @@
 
         &:hover {
           transform: translateY(-5px);
+          background-color: themed("logo");
         }
 
         h2 {

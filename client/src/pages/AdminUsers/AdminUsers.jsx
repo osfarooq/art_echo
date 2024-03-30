@@ -31,6 +31,15 @@ const AdminUsers = () => {
 
   console.log("Users:", users); // Add this line to check the value of users
 
+  const handleDelete = async (userId) => {
+    try {
+      await makeRequest.delete(`http://localhost:8800/api/users/${userId}`);
+      setUsers(users.filter((user) => user.id !== userId));
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -56,7 +65,12 @@ const AdminUsers = () => {
                 <p>Email: {user.email}</p>
 
                 <div className="buttons">
-                  <button className="delete-button">Delete User</button>
+                  <button
+                    className="delete-button"
+                    onClick={() => handleDelete(user.id)}
+                  >
+                    Delete User
+                  </button>
                   <button className="posts-page">View User Posts</button>
                 </div>
               </div>

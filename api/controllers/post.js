@@ -54,7 +54,7 @@ export const deletePost = (req, res) => {
   const token = req.cookies.accessToken;
   if (!token) return res.status(401).json("Not logged in!");
 
-  jwt.verify(token, "secretkey", (err, userInfo) => {
+  jwt.verify(token, "secretKey", (err, userInfo) => {
     if (err) return res.status(403).json("Token is not valid!");
 
     const q =

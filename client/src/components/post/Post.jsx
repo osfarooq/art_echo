@@ -41,7 +41,7 @@ const Post = ({ post }) => {
 
   const deleteMutation = useMutation({
     mutationFn: (postId) => {
-      return makeRequest.delete("/posts" + postId);
+      return makeRequest.delete("/posts/" + postId);
     },
     onSuccess: () => {
       // Invalidate and refetch
@@ -57,7 +57,7 @@ const Post = ({ post }) => {
     deleteMutation.mutate(post.id);
   };
 
-  return (
+  return ( 
     <div className="post">
       <div className="container">
         <div className="user">

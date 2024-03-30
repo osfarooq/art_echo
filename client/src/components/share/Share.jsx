@@ -8,7 +8,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 
 const Share = (event) => {
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState(null); 
   const [desc, setDesc] = useState(null);
 
   const upload = async () => {

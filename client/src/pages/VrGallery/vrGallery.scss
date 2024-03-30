@@ -10,10 +10,39 @@
     .space1 {
       height: 20px;
     }
-    iframe {
+
+    .backButton {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
       padding: 20px;
+      align-items: flex-start;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      span {
+        display: flex;
+        -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+        -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+        box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+        background-color: themed("bg");
+        font-weight: bold;
+        color: themed("logo");
+        padding: 15px;
+        border-radius: 20px;
+      }
+    }
+    iframe {
       overflow: hidden;
+      margin-top: -12px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 20px;
       border: none;
+      border-radius: 10px;
     }
 
     .upload-button {

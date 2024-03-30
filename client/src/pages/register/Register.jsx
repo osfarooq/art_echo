@@ -7,11 +7,14 @@ const Register = () => {
   const [inputs, setInputs] = useState({
     username: "",
     email: "",
+    confirmEmail: "",
     password: "",
+    confirmPassword: "",
     name: "",
   });
 
   const [err, setErr] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (event) => {
     setInputs((prev) => ({ ...prev, [event.target.name]: event.target.value }));
@@ -20,14 +23,24 @@ const Register = () => {
   const handleClick = async (event) => {
     event.preventDefault();
 
+    if (inputs.password !== inputs.confirmPassword) {
+      setErr("Passwords do not match");
+      return;
+    }
+
+    if (inputs.email !== inputs.confirmEmail) {
+      setErr("Email addresses do not match");
+      return;
+    }
+
     try {
       await axios.post("http://localhost:8800/api/auth/register", inputs);
+      setSuccessMessage("Registration successful!");
+      setErr(null); // Clear any previous errors
     } catch (err) {
       setErr(err.response.data);
     }
   };
-
-  console.log(err)
 
   return (
     <div className="register">
@@ -59,9 +72,21 @@ const Register = () => {
               onChange={handleChange}
             />
             <input
+              type="email"
+              placeholder="Confirm Email"
+              name="confirmEmail"
+              onChange={handleChange}
+            />
+            <input
               type="password"
               placeholder="Password"
               name="password"
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              name="confirmPassword"
               onChange={handleChange}
             />
             <input
@@ -70,7 +95,8 @@ const Register = () => {
               name="name"
               onChange={handleChange}
             />
-            {err && err}
+            {err && <p className="error">{err}</p>}
+            {successMessage && <p className="success">{successMessage}</p>}
             <button onClick={handleClick}>Register</button>
           </form>
         </div>

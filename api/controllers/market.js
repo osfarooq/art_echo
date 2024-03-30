@@ -1,7 +1,9 @@
 import { db } from "../connect.js";
+import jwt from 'jsonwebtoken';
+import moment from "moment/moment.js";
 
 export const getMarketItems = (req, res) => {
-    //const userId = req.params.userId;
+    //const userId = req.params.userId; 
     const q = "SELECT * FROM artecho.marketplace;";
   
     db.query(q, (err, data) => {
@@ -10,6 +12,20 @@ export const getMarketItems = (req, res) => {
       return res.json(info);
     });
   };
+
+  export const getItem = (req, res) => {
+    const itemId = req.params.id; // Get the item ID from req.params
+  
+    const q = "SELECT * FROM artecho.marketplace WHERE id = ?;";
+  
+    db.query(q, [itemId], (err, data) => { // Pass itemId as an array
+      if (err) return res.status(500).json(err);
+      if (data.length === 0) return res.status(404).json("Item not found");
+      const { password, ...info } = data[0]; // Assuming you expect only one item to be returned
+      return res.json(info);
+    });
+  };
+  
 
 
   export const uploadMarketItem = (req, res) => {

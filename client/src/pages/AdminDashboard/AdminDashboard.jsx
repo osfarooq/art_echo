@@ -25,12 +25,19 @@ const AdminDashboard = () => {
         <Link to="/ManageUsers" style={{ textDecoration: 'none' }}>
         <div className="card">
           {/* <Link to="/admin/Events" > */}
-          <h2>Manage Market Artworks</h2>
-          <p>Add, edit, and delete products</p>
+          <h2>Manage Gallery Artworks</h2>
+          <p>Approve, edit & Delete artworks for the Gallery.</p>
           {/* </Link> */}
         </div>
         </Link>
-
+        <Link to="/VerifyUsers" style={{ textDecoration: 'none' }}>
+          <div className="card">
+            {/* <Link to="/admin/Artists" > */}
+            <h2>Verify Artists</h2>
+            <p>Verify Artist Accounts.</p>
+            {/* </Link> */}
+          </div>
+        </Link>
         <div className="card">
           {/* <Link to="/admin/Users" > */}
           <h2>Manage Orders</h2>
@@ -38,16 +45,6 @@ const AdminDashboard = () => {
           {/* </Link> */}
         </div>
 
-        <div className="card">
-          {/* <Link to="/admin/Users" > */}
-
-          {/* </Link> */}
-        </div>
-
-        <div className="card">
-          {/* <Link to="/admin/Users" > */}
-          {/* </Link> */}
-        </div>
 
       </div>
 

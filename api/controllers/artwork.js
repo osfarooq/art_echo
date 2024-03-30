@@ -17,7 +17,7 @@ export const uploadArt = (req, res) => {
       if (err) return res.status(500).json(err);
       return res.status(200).json("Post Uploaded!");
     });
-  });
+  }); 
 };
 
 // Function to get artwork items with status 'pending'

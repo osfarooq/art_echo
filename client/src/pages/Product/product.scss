@@ -1,0 +1,105 @@
+@import "../../style.scss";
+
+.product {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: row;
+    background-color: themed("bgSoft");
+    padding: 30px;
+    justify-content: space-between;
+
+    .Information {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      width: 200px;
+
+      .ownerInfo {
+        margin-top: 10px;
+
+        display: flex;
+        flex-direction: row;
+
+        img {
+          margin-top: 10px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        p {
+          margin-left: 5px;
+          color: themed("logo");
+          font-weight: bold;
+          font-size: 15px;
+        }
+      }
+
+      h1 {
+        color: themed("logo");
+        font-size: 60px;
+      }
+
+      h3 {
+        color: rgb(165, 104, 218);
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: bold;
+        color: themed("textColor");
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: start;
+        margin-left: -20px;
+        gap: 20px;
+        padding: 20px;
+
+        button {
+          -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+          -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+          box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.38);
+
+          width: 100px;
+          padding: 10px;
+          border: none;
+          background-color: white;
+          color: rebeccapurple;
+          font-weight: bold;
+          border-radius: 20px;
+
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: translateY(-5px);
+          }
+          cursor: pointer;
+        }
+      }
+    }
+
+    .infoGraphics {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+
+      img {
+        height: 300px;
+        border-radius: 15px;
+        padding: 15px;
+        overflow: hidden;
+        background-color: themed("bg");
+      }
+
+      .space2 {
+        height: 500px;
+      }
+    }
+  }
+}

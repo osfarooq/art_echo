@@ -30,6 +30,12 @@ import { AuthContext } from "./context/authContext";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AdminUsers from "./pages/AdminUsers/AdminUsers";
+import SellItem from "./pages/SellItem/SellItem";
+import Product from "./pages/Product/Product";
+import Friends from "./pages/Friends/Friends";
+import Verification from "./pages/Verification/Verification";
+import VerifyPage from "./pages/Verification/VerifyPage";
+import AdminVerifyUsers from "./pages/AdminVerifyUser/AdminVerifyUser";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -42,6 +48,8 @@ function App() {
 
   const userRole = currentUser ? currentUser.roleType : null;
 
+  const userStatus = currentUser ? currentUser.status : null;
+
   const Layout = () => {
     return (
       <QueryClientProvider client={queryClient}>
@@ -52,7 +60,7 @@ function App() {
             <div style={{ flex: 6 }}>
               <Outlet />
             </div>
-            {/* <RightBar /> */}
+            <RightBar />
           </div>
         </div>
       </QueryClientProvider>
@@ -69,10 +77,12 @@ function App() {
 
   // Determine the home page based on user's role
   const HomePage = () => {
-    if (userRole === "admin") {
+    if (userRole === "admin" && userStatus === "approved") {
       return <AdminHome />;
-    } else if (userRole === "artist") {
+    } else if (userRole === "artist" && userStatus === "approved") {
       return <Home />;
+    } else if (userStatus === "pending") {
+      return <Verification />;
     } else {
       return null; // Handle other cases accordingly
     }
@@ -100,6 +110,10 @@ function App() {
           element: <Marketplace />,
         },
         {
+          path: "/SellItem",
+          element: <SellItem />,
+        },
+        {
           path: "/artworks",
           element: <ArtWorks />,
         },
@@ -110,6 +124,14 @@ function App() {
         {
           path: "/VRGallery",
           element: <VRGallery />,
+        },
+        {
+          path: "/Product/:id",
+          element: <Product />,
+        },
+        {
+          path: "/Friends",
+          element: <Friends />,
         },
       ],
     },
@@ -156,7 +178,10 @@ function App() {
           path: "/ManageUsers",
           element: <ManageUsers />,
         },
-        
+        {
+          path:"VerifyUsers",
+          element: <AdminVerifyUsers/>
+        }
       ],
     },
     {
@@ -173,7 +198,37 @@ function App() {
     },
   ]);
 
-  const selectedRouter = userRole === "admin" ? router_admin : router;
+  const verification_router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <ProtectedRoute>
+          <HomePage />
+        </ProtectedRoute>
+      ),
+      children: [
+        {
+          path: "/",
+          element: <VerifyPage />,
+        },
+      ],
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+  ]);
+
+  const selectedRouter =
+    userRole === "admin"
+      ? router_admin
+      : userStatus === "pending"
+      ? verification_router
+      : router;
 
   return (
     <div>

@@ -46,17 +46,15 @@ const ShareToGallery = (event) => {
   };
 
   return (
-    <div className="share">
+    <div className="shareArt">
     <div className="container">
       <div className="top">
         <div className="left">
-          <img src={currentUser.profilePicture} alt="" />
         </div>
         <div className="right">
           {file && <img className="file" alt="" src={URL.createObjectURL(file)}/>}
         </div>
       </div>
-      <hr />
       <div className="bottom">
         <div className="left">
           <input
@@ -67,14 +65,14 @@ const ShareToGallery = (event) => {
           />
           <label htmlFor="file">
             <div className="item">
-              <img src={Image} alt="" />
-              <span>Add Image</span>
+              <img src={currentUser.profilePicture} alt="" />
+              <span>Add an Image to the Gallery!</span>
             </div>
           </label>
     
         </div>
         <div className="right">
-          <button onClick={handleClick}>Share</button>
+          <button onClick={handleClick}>Upload</button>
         </div>
       </div>
     </div>

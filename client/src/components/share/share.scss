@@ -77,6 +77,11 @@
                         align-items: center;
                         gap: 10px;
                         cursor: pointer;
+                        transition: transform 0.3s ease;
+
+                        &:hover {
+                          transform: translateY(-5px);
+                        }
 
                         img {
                             height: 20px;
@@ -92,11 +97,17 @@
                 .right {
                     button {
                         border: none;
-                        padding: 5px;
+                        padding: 10px 15px;
                         color: white;
+                        font-weight: bold;
                         cursor: pointer;
                         background-color: themed("logo");
-                        border-radius: 3px;
+                        border-radius: 15px;
+                        transition: transform 0.3s ease;
+
+                        &:hover {
+                          transform: translateY(-5px);
+                        }
                     }
                 }
             }
